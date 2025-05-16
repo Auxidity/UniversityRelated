@@ -1,0 +1,9 @@
+The way I managed to reach 20% load was using 50ms polling rate running simultaneously in 5 browsers, 2 tabs each (=10 total tabs).
+This would result in total handled requests per second to be 200. Picture in load20.png of setup. 
+
+Using the 50ms polling rate, I was able to reach 30% cpu load, at which I stopped (with additional tabs, forgot to mark down how many exactly).
+
+When replicated with a lower polling rate (all the way down to 1ms/poll), the load wouldn't hit 20%. And when increasing the amount of tabs, or browsers, 
+no matter what the cpu load wouldn't reach 20% (Highest reached was ~15%, after which it magically started going down to ~10% at which it stayed). 
+I wasn't able to confirm for certain what is the reason for certain, but online sources pointed towards a few potential candidates, such as processing 
+time per poll going down due to poll size being smaller, or just-in-time compilation optimization that is innate to JavaScript.

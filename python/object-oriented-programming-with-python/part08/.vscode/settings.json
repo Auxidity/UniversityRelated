@@ -1,0 +1,33 @@
+{
+    "python.analysis.extraPaths": [
+        "./8.3.1-Book",
+        "./8.1.1-The-smallest-average-result",
+        "./8.3.3-Define-class-Pet",
+        "./8.5.1-Stopwatch",
+        "./8.1.2-Row-sums",
+        "./8.3.4-The-older-book",
+        "./8.5.2-Clock",
+        "./8.2.1-List-of-years",
+        "./8.3.5-Books-of-a-genre",
+        "./8.5.3-LunchCard",
+        "./8.2.2-Shopping-list",
+        "./8.4.1-Decreasing-counter",
+        "./8.5.4-Series",
+        "./8.4.2-First-and-last-name",
+        "./8.3.2-Three-classes",
+        "./8.4.3-Statistics-on-numbers"
+
+    ],
+    
+    "python.testing.pytestEnabled": true,
+    "python.testing.unittestEnabled": true,
+    "python.testing.unittestArgs": [
+        "-v",
+        "-s",
+        "./testbench",
+        "-p",
+        "*test*.py"
+    ],
+    "python.testing.autoTestDiscoverOnSaveEnabled": true
+
+}

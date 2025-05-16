@@ -1,0 +1,110 @@
+I entered the mumbo jumbo at line 8, near very beginning of the config file.
+
+
+pi@auxi:~ $ sudo systemctl status lighttpd.service 
+× lighttpd.service - Lighttpd Daemon
+     Loaded: loaded (/lib/systemd/system/lighttpd.service; enabled; preset: enabled)
+     Active: failed (Result: exit-code) since Tue 2024-03-19 12:30:19 GMT; 7min ago
+   Duration: 9min 9.918s
+    Process: 24797 ExecStartPre=/usr/sbin/lighttpd -tt -f /etc/lighttpd/lighttpd.conf (code=exited, status=255/EXCEPTION)
+        CPU: 368ms
+
+Mar 19 12:30:19 auxi systemd[1]: lighttpd.service: Scheduled restart job, restart counter is at 6.
+Mar 19 12:30:19 auxi systemd[1]: Stopped lighttpd.service - Lighttpd Daemon.
+Mar 19 12:30:19 auxi systemd[1]: lighttpd.service: Start request repeated too quickly.
+Mar 19 12:30:19 auxi systemd[1]: lighttpd.service: Failed with result 'exit-code'.
+Mar 19 12:30:19 auxi systemd[1]: Failed to start lighttpd.service - Lighttpd Daemon.
+
+pi@auxi:~ $ sudo tail -20 /var/log/lighttpd/error.log
+2024-03-19 12:21:06: (server.c.1704) server started (lighttpd/1.4.69)
+2024-03-19 12:30:15: (server.c.1057) [note] graceful shutdown started
+2024-03-19 12:30:15: (server.c.2078) server stopped by UID = 0 PID = 24770
+
+pi@auxi:~ $ sudo /usr/sbin/lighttpd -tt -f /etc/lighttpd/lighttpd.conf
+2024-03-19 12:42:15: (configfile.c.2593) server.document-root is not set
+2024-03-19 12:42:15: (server.c.1442) setting default values failed
+
+pi@auxi:~ $ sudo tail -20 /var/log/syslog
+tail: cannot open '/var/log/syslog' for reading: No such file or directory
+
+
+if you try to start the service when config file is still not properly formatted, the following gets printed :
+
+pi@auxi:~ $ sudo systemctl start lighttpd.service                
+Job for lighttpd.service failed because the control process exited with error code. 
+See "systemctl status lighttpd.service" and "journalctl -xeu lighttpd.service" for details.
+
+
+Running journalctl -xeu lighttpd.service,
+
+Mar 19 12:58:51 auxi systemd[1]: lighttpd.service: Start request repeated too quickly.                                           
+Mar 19 12:58:51 auxi systemd[1]: lighttpd.service: Failed with result 'exit-code'.                
+░░ Subject: Unit failed                                                                                                          
+░░ Defined-By: systemd                                                                                                           
+░░ Support: https://www.debian.org/support                                                                                       
+░░                                                                                                                               
+░░ The unit lighttpd.service has entered the 'failed' state with result 'exit-code'.  
+Mar 19 12:58:51 auxi systemd[1]: Failed to start lighttpd.service - Lighttpd Daemon.
+░░ Subject: A start job for unit lighttpd.service has failed                                                                     
+░░ Defined-By: systemd                                                                                                           
+░░ Support: https://www.debian.org/support                                                                                       
+░░                                                                                                                               
+░░ A start job for unit lighttpd.service has finished with a failure.     
+░░                                                              
+░░ The job identifier is 4838 and the job result is failed.  
+
+if we then run journalctl -u lighttpd.service, we get:
+
+pi@auxi:~ $ journalctl -u lighttpd.service                                                                                       
+Mar 19 12:21:06 auxi systemd[1]: Starting lighttpd.service - Lighttpd Daemon...                   
+Mar 19 12:21:06 auxi systemd[1]: Started lighttpd.service - Lighttpd Daemon.   
+Mar 19 12:30:16 auxi systemd[1]: Reloading lighttpd.service - Lighttpd Daemon...
+Mar 19 12:30:16 auxi systemd[1]: Reloaded lighttpd.service - Lighttpd Daemon.   
+Mar 19 12:30:16 auxi lighttpd[24640]: 2024-03-19 12:30:16: (configfile.c.2593) server.document-root is not set
+Mar 19 12:30:16 auxi lighttpd[24640]: 2024-03-19 12:30:16: (server.c.1442) setting default values failed      
+Mar 19 12:30:16 auxi systemd[1]: lighttpd.service: Main process exited, code=exited, status=255/EXCEPTION   
+Mar 19 12:30:16 auxi systemd[1]: lighttpd.service: Failed with result 'exit-code'.                       
+Mar 19 12:30:16 auxi systemd[1]: lighttpd.service: Consumed 1.174s CPU time.        
+Mar 19 12:30:16 auxi systemd[1]: lighttpd.service: Scheduled restart job, restart counter is at 1.
+Mar 19 12:30:16 auxi systemd[1]: Stopped lighttpd.service - Lighttpd Daemon.                      
+Mar 19 12:30:16 auxi systemd[1]: lighttpd.service: Consumed 1.174s CPU time.   
+Mar 19 12:30:16 auxi systemd[1]: Starting lighttpd.service - Lighttpd Daemon...                               
+Mar 19 12:30:17 auxi lighttpd[24776]: 2024-03-19 12:30:16: (configfile.c.2593) server.document-root is not set
+Mar 19 12:30:17 auxi lighttpd[24776]: 2024-03-19 12:30:16: (server.c.1442) setting default values failed      
+Mar 19 12:30:17 auxi systemd[1]: lighttpd.service: Control process exited, code=exited, status=255/EXCEPTION
+Mar 19 12:30:17 auxi systemd[1]: lighttpd.service: Failed with result 'exit-code'.                          
+Mar 19 12:30:17 auxi systemd[1]: Failed to start lighttpd.service - Lighttpd Daemon.              
+Mar 19 12:30:17 auxi systemd[1]: lighttpd.service: Scheduled restart job, restart counter is at 2.
+Mar 19 12:30:17 auxi systemd[1]: Stopped lighttpd.service - Lighttpd Daemon.                      
+Mar 19 12:30:17 auxi systemd[1]: Starting lighttpd.service - Lighttpd Daemon...
+Mar 19 12:30:17 auxi lighttpd[24781]: 2024-03-19 12:30:17: (configfile.c.2593) server.document-root is not set
+Mar 19 12:30:17 auxi lighttpd[24781]: 2024-03-19 12:30:17: (server.c.1442) setting default values failed      
+Mar 19 12:30:17 auxi systemd[1]: lighttpd.service: Control process exited, code=exited, status=255/EXCEPTION
+Mar 19 12:30:17 auxi systemd[1]: lighttpd.service: Failed with result 'exit-code'.                          
+Mar 19 12:30:17 auxi systemd[1]: Failed to start lighttpd.service - Lighttpd Daemon.
+Mar 19 12:30:17 auxi systemd[1]: lighttpd.service: Scheduled restart job, restart counter is at 3.
+Mar 19 12:30:17 auxi systemd[1]: Stopped lighttpd.service - Lighttpd Daemon.                      
+Mar 19 12:30:17 auxi systemd[1]: Starting lighttpd.service - Lighttpd Daemon...
+Mar 19 12:30:18 auxi lighttpd[24787]: 2024-03-19 12:30:17: (configfile.c.2593) server.document-root is not set
+Mar 19 12:30:18 auxi lighttpd[24787]: 2024-03-19 12:30:17: (server.c.1442) setting default values failed
+Mar 19 12:30:18 auxi systemd[1]: lighttpd.service: Control process exited, code=exited, status=255/EXCEPTION
+Mar 19 12:30:18 auxi systemd[1]: lighttpd.service: Failed with result 'exit-code'.
+Mar 19 12:30:18 auxi systemd[1]: Failed to start lighttpd.service - Lighttpd Daemon.
+
+
+
+
+As can be seen, syslog isn't created so that cant be used to determine anything about the error.
+
+The systemctl status points us towards the config file or /usr/sbin/lighttpd, giving an error of status 255/EXCEPTION, which usually suggests a generic failure or
+unexpected error during execution of the service when talking about systemctl.
+
+Journalctl shows us that initialization of the server is failing, and it tries to restart the service. Specifically, 
+"(configfile.c.2593)server.document-root is not set" and "(server.c.1442) setting default values failed" show up repeatedly, resulting in 
+"Control process exited, code=exited, status=255/EXCEPTION".
+
+What can be inferred from this is that the error must either happen when these are being set, or before that.
+
+And if we find the line {server.document-root        = "/var/www/html"} in the config file, which is also what the error told us about 
+(server.document-root is not set), we find that above it theres a line of mumbo jumbo. So while we didn't specifically find the line directly where the 
+error happened, we did find something to search for in the config file which did point us to the error.

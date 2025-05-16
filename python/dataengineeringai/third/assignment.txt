@@ -1,0 +1,38 @@
+
+This exercise is written for Ubuntu 22.04
+
+#1)
+Throughout the following, take a few screenshots and collect those in a word document or similar as a solution to this assignment. Write some comments if you had any problems on the way.
+
+Read through the following page and install the ca-certificates package. No need to worry about the installing part quite yet, only run the apt-get to install the package.
+https://ubuntu.com/server/docs/install-a-root-ca-certificate-in-the-trust-store
+sudo apt-get install ca-certificates
+(This may already be installed in your system.)
+Also have a look at the following page (just for information, no need to execute any of the commands from here):
+https://documentation.ubuntu.com/server/explanation/security/certificates/
+
+
+Let's install Nginx which we will be using for testing our certificate. Nginx is often used as a reverse-proxy webserver. Follow this tutorial:
+https://www.digitalocean.com/community/tutorials/how-to-install-nginx-on-ubuntu-22-04
+Note #1: you may need to issue 'sudo ufw enable' before checking 'sudo ufw status' if you have disabled ufw for some reason earlier.
+Note #2: 'sudo apt install curl' if you don't have curl installed yet.
+Note #3: You might not be able to use your public IP address in browser, depending on VM. If not, try using 127.0.0.1 or localhost.
+Note #4: We will skip step 5.
+
+(Additional reading for the interested: https://www.digitalocean.com/community/tutorials/how-to-configure-nginx-as-a-reverse-proxy-on-ubuntu-22-04 )
+
+Follow this tutorial to create a self-signed (unsigned) cert and set it up with Nginx. It suffices to go as far as Step 5 and open the nginx page in browser under HTTPS. The browser should give a warning because of our certificate. Take a screenshot of the certificate opened in the browser.
+https://www.digitalocean.com/community/tutorials/how-to-create-a-self-signed-ssl-certificate-for-nginx-in-ubuntu
+Note #5: For our test, we don't need to worry about the step 5 in previous tutorial. We are only interested in the certificate this time.
+Note #6: When asked for server FQDN, we will write 127.0.0.1
+Note #7: When the tutorial asks you to modify /etc/nginx/sites-available/your_domain in step 2, we will instead modify the default config at /etc/nginx/sites-available/default
+
+Take also screenshots of:
+sudo cat /etc/ssl/certs/nginx-selfsigned.crt
+sudo cat /etc/ssl/private/nginx-selfsigned.key
+(Normally you would never share or take a screenshot of your private key!!)
+
+#2
+In the previous assignment with Nginx, we created a self-signed certificate without signing it. What we could have done is that we could have generated a keypair for our own virtual CA, generated a certificate signing request and signed that with our virtual CA's key. If we then added that CA's public key in our browsers truested CA's, the browser would give no warning for our certificate.
+
+In your own words, what is the purpose of these CA's? Bearing in mind that in real-life situations these CA's are third party organizations.

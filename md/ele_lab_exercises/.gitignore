@@ -1,0 +1,7 @@
+# Ignore the following files
+*.log
+*.raw
+
+# Ignore the following folders
+Lab4/images/backup/
+Lab4/asc/backup/

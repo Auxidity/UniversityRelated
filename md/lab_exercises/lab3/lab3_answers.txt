@@ -1,0 +1,210 @@
+*****************************************
+* THE ANSWERS TO THE QUESTIONS IN LAB 3 *
+*****************************************
+
+Q1. What are the maximum values of ja, jb, int_a and int_b?
+
+Answer: The maximum value of int_a and int_b is 2^32, whereas the maximum value
+of ja and jb is 2^8.
+
+***
+
+Q2. How many registers there are for ja and jb? Note: by register we mean
+number of flip-flops.
+
+Answer: ja has 32 registers, wheras jb has 5 registers.
+
+***
+
+Q3. Explain where the registers come from.
+
+Answer: For ja, we have not defined range, so it uses the default value, which
+for integer is 32. For jb, we have defined range from 0 to 31, which means 32
+bits => required amount of registers is log2(32) = 5.
+
+***
+
+Q4. Close the simulation. Enable the range check for simulator:
+Tools -> Settings -> Simulation -> Elaboration (tab) ->
+tick “xsim.elaborate.rangecheck”. Restart the simulation.
+What happens now when you run the simulation long enough?
+
+Answer: The simulation crashes when the simulation value for int_b reaches 32.
+
+***
+
+Q5. What is the total number of registers and LUTs in the design?
+
+Answer: There are 13 registers and 4 LUTs.
+
+***
+
+Q6. Does the number of registers match with the register count in the
+elaborated design? If not, why? 
+
+Answer: The number of registers does not match, because the synthetization
+process has optimized the number of registers. This is because we have defined
+ja have 8 bits, which causes the synthezis to scale down int_a's registers to
+match. int_b remains as it was defined.
+
+***
+
+Q7. Open the schematics of synthesized design. Does the number of registers
+match with the utilization report?
+
+Answer: Yes, they do match.
+
+***
+
+Q8. Run the post-synthesis functional simulation. Look at the values of ja and
+jb. What is the maximum value of ja and jb? Do these meet your expectations?
+
+Answer: The maximum value of ja is 255, whereas the maximum value of jb is 31.
+These numbers match with our expectations.
+
+***
+
+Q9. Change the code so that signal int_b is range-limited from 0 to 25. Re-run
+the synthesis. Did the amount of used resources change?
+
+Answer: The amout of used resources did not change.
+
+***
+
+Q10. Re-run the post-synthesis functional simulation. Look at the values of ja
+and jb. What is the maximum value of ja and jb? Do these meet your
+expectations?
+
+Answer: The maximum value of ja is 255, and the maximum value of jb is still
+31. The result is expected because there is no wrap over.
+
+***
+
+Q11. Does the simulation pass now without erros?
+
+Answer: Yes.
+
+***
+
+Q12. What is the maximum value of jb?
+
+Answer: 25.
+
+***
+
+Q13. Open the elaborated design. See the schematics. What is the difference
+compared to previous?
+
+Answer: There is now an additional "greater than" comparator.
+
+***
+
+Q14. Re-run the synthesis. Look at the resource utilization. What is the number
+of registers and LUTs? Does this meet your expectations?
+
+Answer: The number of LUTs has increased by one (now 5). The number of
+registers has not changed. The results are as expected.
+
+***
+
+Q15. Change the design once again, so that range of signal int_b is again from
+0 to 31 (but it still wraps over at 25). Synthesize the design and check
+resource utilization. Is the result expected? 
+
+Answer: Nothing changed. This was expected.
+
+***
+
+Q16. Change the design once again (yes yes, last time of this), so that range
+of signal int_b is from 0 to 255 (but it still wraps over at 25). What is the
+number of jb output register in the elaborated design schematics? Can you
+explain this?
+
+Answer: The number of jb output registers has increased by 3 and is now 8. This
+is because log2(256) = 8.
+
+***
+
+Q17. Synthesize the design and check resource utilization. How many
+registers/luts? Is the result expected?
+
+Answer: There are 7 LUTs and 15 registers. The result is not expected.
+
+***
+
+Q18. Run the implementation flow (place & route) and check the resource
+utilization. Is this the optimal usage of registers? If not, why?
+
+Answer: It is not. Because the maximum value of int_b is doable with 5
+registers, the optimal amount of registers in total is 13.
+
+***
+
+Q19. See the constraints file. What were the timing requirements for this
+design? 
+
+Answer: The timing requirement set by the clock signal was 8 ns.
+
+***
+
+Q20. What is the set-up time margin? Try with 250MHz clock, does it still
+fulfil timing requirements?
+
+Answer: Our implementation's slack is 4.482 ns, so the timing requirement was
+met. When using 250 MHz clock signal, the slack is 0.841 ns, so the timing
+requirement is still met.
+
+
+**************************
+* Oscilloscope exercises *
+**************************
+
+
+1. Measure the frequency of the LSb (least significant bit) on jb.
+
+Answer: 37.5 MHz (which is incorrect due to aliasing effect:
+50 MHz - (62.5 MHz - 50 MHz) = 37.5 MHz; so the correct value is 62.5 MHz,
+which we know because the frequency of our clock signal is 125 MHz, and the
+frequency of LSb should be half of that).
+
+***
+
+2. Measure the frequency of the MSb (most significant bit) on jb. 
+
+Answer: 4.8 MHz
+
+***
+
+3. Measure the frequency of the MSb (most significant bit) on ja.
+
+Answer: 488.3 kHz
+
+***
+
+4. Measure the pulse ratio of the MSb on jb ( = duty cycle, i.e. how many % of
+the time the signal is high).
+
+Answer: Positive 39.32 % / negative 60.68 %
+
+***
+
+5. Measure the pulse ratio of the Msb on ja.  
+
+Answer: Positive 49.82 % / negative 50.18 %
+
+***
+
+Q19. Based on the measurement results, what is the frequency of sysclk?
+
+Answer: 125 MHz (which is twice the frequency of LSb).
+
+***
+
+Q20. Explain the pulse ratio of MSb of jb.
+
+Answer: The pulse ratio is not 50/50, because we do not use every possible bit
+value available due to wrapping over at 25. This causes the pulse ratio to be
+negative more than positive (for the first 16 values, the MSb is 0, whereas for
+the 9 remaining values it is 1; the values from 26 to 32 are not used, which
+also means that the frequency of the signal is higher than if those values were
+used).

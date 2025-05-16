@@ -1,0 +1,20 @@
+1. In picoscope the frequency is ~0.5Hz with a duty cycle of 50/50.
+2.  -Cycle time is 2.185ms
+    -High duty width is 1.094ms , giving jitter of 50.06%. Assuming 50% duty cycle, the absolute jitter in that case is 50-50.06, meaning 0.06% jitter.
+    -For an embedded device that isn't utmostly critical in terms of time the clock signal is acceptable, however it isn't perfect either.
+
+3. True cycle time is 147.5 microseconds. However there in an interesting phenomena where during a 15ms period, the signal stops being generated for a duration of approximately 0.5ms once.
+    - Jitter is approximately 0.01% during the phase where the signal is being generated properly
+    -It is not useable as a clock signal however due to these repeating stops at which the signal is being generated.
+
+4. Once the printf call was commented out, the phenomena of signal stopping to be generated disappeared.
+    - Cycle time is at 127.1 micro seconds and HPW is at 64.8, giving a jitter of 0.98%
+    - This would again be potentially useable for a clock if its not timing critical.
+5. According to picoscope the cycle time is 3.956 microseconds, however the waveform doesn't look like square or sine wave at all. It is clear that the device is struggling to generate the signal fast enough.
+
+6. The led is blinking in a seemingly random manner, and when taking a look at the picoscope graph, it seems to be rather accurate. Most blinking is within a certain frequency range, but there are some outliers that can be observed to that, making it difficult to pinpoint any pattern.
+
+7. The longer pauses seem to have disappeared, but there still isn't any clear pattern that could be recognized in the waveform.
+
+8. After commenting out the fflush and running it directly in raspberry, we get 220 microseconds cycle time, and HPW of 209 microseconds.
+    the jitter would then be 45.2% (=95.2-50), which is bad.

@@ -1,0 +1,56 @@
+version: "2.0"
+
+nlu:
+- intent: Opinion_change_due_to_passive_encounter_of_information
+  examples: |
+    - This study reports results of interviews with 18 people, and counts on their own self reporting.
+    - However, these interviews were asking respondents to report on the process of change.
+    - Furthermore, it selects people who had already changed their opinions.
+    - The study did not compare two groups to measure changes in opinions.
+    - The study design seems questionable as it selected on the dependent variable.
+    - We have no idea how common changing opinions actually is as a result of passive information encounters.
+    - The authors note they didn't define view change, letting respondents define it themselves.
+    - The authors are using a convenience sample, adding to the study's drawbacks.
+
+- intent: Information_about_study_on_opinion_change
+  examples: |
+    - The journal/DOI system screwed up, link can be found here for those interested: [https://asistdl.onlinelibrary.wiley.com/doi/full/10.1002/asi.24885](https://asistdl.onlinelibrary.wiley.com/doi/full/10.1002/asi.24885)
+
+- intent: Strategy_to_trigger_information_seeking_behavior
+  examples: |
+    - That's why when I argue with people I try to keep tensions low and let my key points flow into the conversation.
+    - It helps to seem really disinterested and generally bored and unwilling to continue the conversation.
+    - The general disinterest and apparent waste of time triggers some sort of FOMO in the other party.
+    - Works 7/10 times but don't quote me on that.
+    - I do this at work when I don’t agree with the way something is being done, but I know directly opposing it is an uphill battle.
+
+- intent: Confirmation_bias
+  examples: |
+    - New study shows Confirmation Bias is a thing.
+  
+- intent: Influence_of_repeated_exposure_to_conspiracies_on_beliefs
+  examples: |
+    - I remember reading an article on conspiracies etc. The writer mentioned being drawn into some of them with repeated exposure.
+    - Even the well-educated, intelligent people are susceptible, with repeated exposure.
+
+responses:
+  Strategy_to_trigger_information_seeking_behavior:
+    - Works 7/10 times.
+    - I would like to hear more about this strategy.
+    - I do this at work when I don’t agree with the way something is being done, but I know directly opposing it is an uphill battle.
+    - It comes frighteningly naturally to me.
+  Dead_link:
+    - Sorry, here is the working link: [https://asistdl.onlinelibrary.wiley.com/doi/full/10.1002/asi.24885]  
+  Influence_of_repeated_exposure_to_conspiracies_on_beliefs: 
+    - Makes sense that even well-educated, intelligent people are just as susceptible to conspiracies with repeated exposure.
+    - Double-edged sword regarding exposure to various topics.
+  Opinion_change_due_to_passive_encounter_of_information:
+    - The study didn't compare two groups to measure changes in opinions.
+    - We have no idea how common changing opinions actually is as a result of passive encounters of information.
+    - The study design seems questionable as it selected on the dependent variable.
+    - The authors are using a convenience sample, adding to the study's drawbacks.
+    - The authors note they didn't define view change, letting respondents define it themselves.
+  Information_about_study_on_opinion_change:
+    - The journal/DOI system screwed up, link can be found here for those interested: [https://asistdl.onlinelibrary.wiley.com/doi/full/10.1002/asi.24885](https://asistdl.onlinelibrary.wiley.com/doi/full/10.1002/asi.24885)
+  Confirmation_bias:
+    - New study shows Confirmation Bias is a thing.

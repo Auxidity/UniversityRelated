@@ -1,0 +1,44 @@
+When running the ledon and ledoff scripts, the led turns correctly on raspberry. The logs are also written to a logfile properly.
+When ran through terminal with 'sudo runuser -u www-data /usr/lib/cgi-bin/lab4-ledon.cgi', it gives no errors and logfile gets written to correctly.
+
+When ran through the browser however, all functionality works, led turns on and log file gets written to properly. However, server returns 500 (As can be
+seen in the html files). No indication of why in log file. Potential reason is the lack of printing HTML content in the files.
+
+
+Log file contents :
+
+2024-03-26 15:50:16: (connections.c.770) fd:12 rqst: GET /cgi-bin/lab4-ledoff.cgi HTTP/1.1
+2024-03-26 15:50:16: (connections.c.770) fd:12 rqst: Host: 192.168.1.138
+2024-03-26 15:50:16: (connections.c.770) fd:12 rqst: User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:123.0) Gecko/20100101 Firefox/123.0
+2024-03-26 15:50:16: (connections.c.770) fd:12 rqst: Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8
+2024-03-26 15:50:16: (connections.c.770) fd:12 rqst: Accept-Language: en-US,en;q=0.5
+2024-03-26 15:50:16: (connections.c.770) fd:12 rqst: Accept-Encoding: gzip, deflate
+2024-03-26 15:50:16: (connections.c.770) fd:12 rqst: Connection: keep-alive
+2024-03-26 15:50:16: (connections.c.770) fd:12 rqst: Upgrade-Insecure-Requests: 1
+2024-03-26 15:50:16: (connections.c.770) fd:12 rqst:
+2024-03-26 15:50:16: (response.c.420) -- parsed Request-URI
+2024-03-26 15:50:16: (response.c.422) Request-URI     : /cgi-bin/lab4-ledoff.cgi
+2024-03-26 15:50:16: (response.c.424) URI-scheme      : http
+2024-03-26 15:50:16: (response.c.426) URI-authority   : 192.168.1.138
+2024-03-26 15:50:16: (response.c.428) URI-path (clean): /cgi-bin/lab4-ledoff.cgi
+2024-03-26 15:50:16: (response.c.430) URI-query       :
+2024-03-26 15:50:16: (configfile-glue.c.596) === start of condition block ===
+2024-03-26 15:50:16: (configfile-glue.c.527) $HTTP["url"] =^ "/cgi-bin/" compare to /cgi-bin/lab4-ledoff.cgi
+2024-03-26 15:50:16: (configfile-glue.c.384) 2 (uncached) result: true (cond: global / $HTTP["url"] =^ "/cgi-bin/")
+2024-03-26 15:50:16: (response.c.509) -- logical -> physical
+2024-03-26 15:50:16: (response.c.511) Doc-Root     : /var/www/html
+2024-03-26 15:50:16: (response.c.513) Basedir      : /usr/lib/cgi-bin/
+2024-03-26 15:50:16: (response.c.515) Rel-Path     : /cgi-bin/lab4-ledoff.cgi
+2024-03-26 15:50:16: (response.c.517) Path         : /usr/lib/cgi-bin/lab4-ledoff.cgi
+2024-03-26 15:50:16: (response.c.536) -- handling subrequest
+2024-03-26 15:50:16: (response.c.538) Path         : /usr/lib/cgi-bin/lab4-ledoff.cgi
+2024-03-26 15:50:16: (response.c.540) URI          : /cgi-bin/lab4-ledoff.cgi
+2024-03-26 15:50:16: (response.c.542) Pathinfo     :
+2024-03-26 15:50:17: (response.c.179) fd:12 resp: HTTP/1.1 500 Internal Server Error
+2024-03-26 15:50:17: (response.c.179) fd:12 resp: Content-Type: text/html
+2024-03-26 15:50:17: (response.c.179) fd:12 resp: Content-Length: 365
+2024-03-26 15:50:17: (response.c.179) fd:12 resp: Date: Tue, 26 Mar 2024 15:50:17 GMT
+2024-03-26 15:50:17: (response.c.179) fd:12 resp: Server: lighttpd/1.4.69
+2024-03-26 15:50:17: (response.c.179) fd:12 resp:
+2024-03-26 15:50:23: (connections.c.1456) connection closed - keep-alive timeout: 12
+

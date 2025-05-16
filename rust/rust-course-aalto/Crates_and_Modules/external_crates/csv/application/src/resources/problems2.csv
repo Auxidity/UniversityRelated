@@ -1,0 +1,7 @@
+What is the name of the Rust compiler?,rustc
+What is the name of the Rust package manager?,Cargo
+What is the name of the Rust package registry?,crates.io
+What is the name of the Rust documentation?,docs.rs
+What module is the Rust standard library?,std
+What standard library module contains stdin for reading input?,std::io
+What standard library module contains functions for reading and writing files?,std::fs

@@ -1,0 +1,1 @@
+/home/auxi/Desktop/Rust/rust/Memory_Lifetimes_and_Trait_Objects/chapter_thirteen/target/debug/chapter_thirteen: /home/auxi/Desktop/Rust/rust/Memory_Lifetimes_and_Trait_Objects/chapter_thirteen/src/main.rs

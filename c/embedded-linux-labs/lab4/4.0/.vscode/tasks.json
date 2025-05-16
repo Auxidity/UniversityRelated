@@ -1,0 +1,28 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Copy executable ledoff (rpi)",
+            "type": "shell",
+            "command": "scp /home/student/Desktop/EmbeddedLinux/embedded-linux-labs/lab4/4.0/build/lab4-ledoff rpi:~",
+            "problemMatcher": []
+        },
+        {
+            "label": "Copy executable ledon (rpi)",
+            "type": "shell",
+            "command": "scp /home/student/Desktop/EmbeddedLinux/embedded-linux-labs/lab4/4.0/build/lab4-ledon rpi:~",
+            "problemMatcher": []
+        },
+        {
+            "label": "Task1",
+            "dependsOn":["Copy executable ledoff (rpi)", "Copy executable ledon (rpi)"],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        }
+
+    ]
+}

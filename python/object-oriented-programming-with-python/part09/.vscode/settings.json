@@ -1,0 +1,30 @@
+{
+    "python.testing.unittestArgs": [
+        "-v",
+        "-s",
+        "./testbench",
+        "-p",
+        "*test*.py"
+    ],
+    "python.testing.pytestEnabled": false,
+    "python.testing.unittestEnabled": true,
+    "python.testing.autoTestDiscoverOnSaveEnabled": true,
+    "python.analysis.extraPaths": [
+        "./9.1.2-Passing-submissions",
+        "./9.1.3-Baby-Centre",
+        "./9.1.4-LunchCard-and-PaymentTerminal",
+        "./9.1.5-Comparing-properties",
+        "./9.2.1-Pets",
+        "./9.2.2-A-box-of-presents",
+        "./9.2.3-The-shortest-person-in-the-room",
+        "./9.3.1-Car",
+        "./9.3.2-Recording",
+        "./9.3.3-Weather-station",
+        "./9.4.1-Service-charge",
+        "./9.5.1-Postcodes",
+        "./9.5.2-List-helper",
+        "./9.6.1-Item-Suitcase-and-Cargo-hold",
+        "./9.1.1-The-fastest-car"
+    ]
+
+}

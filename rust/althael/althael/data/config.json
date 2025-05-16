@@ -1,0 +1,5 @@
+{
+  "min_length": 6,
+  "max_length": 12,
+  "pw_length": 8
+}

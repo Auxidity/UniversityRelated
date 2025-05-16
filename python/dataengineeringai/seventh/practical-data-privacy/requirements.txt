@@ -1,0 +1,16 @@
+jupyter
+numpy
+scipy
+seaborn
+pandas
+requests
+faker
+ff3
+matplotlib
+great_expectations
+transformers
+datasets
+opacus
+flwr
+ray
+torchvision

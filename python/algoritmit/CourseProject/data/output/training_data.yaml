@@ -1,0 +1,241 @@
+version: "2.0"
+
+nlu:
+  - intent: Novel_protective_response_to_traumatic_brain_injury_discovered
+    examples: |
+      - To test their findings clinically, Albayram and his team examined postmortem human brains with and without long-term brain disease from concussions.
+      - Protein p17 could be a target for future treatments that protect the brain after concussions and prevent long-term health consequences.
+      - Researchers were able to trigger this recovery process in a preclinical model.
+      - These findings could inform how we treat brain disease broadly.
+      - What role does protein p17 play in protecting the brain from disease?
+      - How could drug treatments targeting protein p17 improve the brain's recovery after concussions?
+    response:
+       Novel_protective_response_to_traumatic_brain_injury_discovered:
+       - Protein p17 plays a small but mighty role in how the brain protects itself from
+         disease.
+       - Beyond just traumatic brain injury, these findings could inform how we treat brain
+         disease broadly.
+       - Researchers aim to develop drug treatments for humans based on triggering the recovery
+         process in preclinical models.
+
+  - intent: Paper_on_protective_neuroresponse_to_brain_injury
+    examples: |
+      - What does the paper "p17/C18-ceramide-mediated mitophagy is an endogenous neuroprotective response in preclinical and clinical brain injury" discuss?
+      - How do protein p17 levels correlate with long-term brain disease from concussions?
+      - Could protein p17 be a potential target for future drug treatments to protect the brain?
+      - How does the activation of protein p17 lead to a recovery process in preclinical models?
+      - What implications do the findings in the paper have for the treatment of brain diseases?
+    response:
+       Paper_on_protective_neuroresponse_to_brain_injury:
+       - The paper discusses the endogenous neuroprotective response involving p17/C18-ceramide-mediated
+         mitophagy in brain injury.
+       - Protein p17 levels were notably lower in postmortem human brains with long-term
+         brain disease from concussions.
+       - Protein p17 is considered a potential target for future drug treatments to protect
+         the brain.
+       - Activation of protein p17 triggers a recovery process in preclinical models, showcasing
+         its importance in brain protection.
+       - The findings in the paper have implications not only for traumatic brain injury
+         but also for the broader treatment of brain diseases.
+
+  - intent: Waterworld_boiling_ocean_in_deep_space
+    examples: |
+      - Boiling oceans. Perhaps it was also once ruled by humans.
+      - I hope whoever gets to name this planet will go with a suitable tea related pun.
+      - If the water somehow grows a lot of really heat resistant plankton, would they be able to oxygenate the atmosphere somehow? Then maybe coral build up could make land masses. At 70 light years away, it's still more than a bit of a hike though. Not an expert, just like learning about this stuff.
+      - If it has a hydrogen-rich atmosphere, could we not assume that the surface layer of the planetary ocean would have to be quite intensely acidic?
+      - "We're sending you down there to investigate, Sgt. Snips, and in case things go badly, put this roll of compound butter in your pack." -When the crab people started to realize the Terran army truly was treating them like second class citizens
+      - "Also known as Oolong IV, in the Lapsang Souchong system"
+      - So when do we go?
+    response:
+       Waterworld_boiling_ocean_in_deep_space:
+       - I hate what we did there
+       - I read the comments.. your jokes are horrible. Stick to your day jobs
+
+  - intent: Heat_resistant_plankton_and_oxygenation_in_boiling_ocean
+    examples: |
+      - AFAIK we know of organisms that can survive at 122C
+      - Unless there is some photosynthetic life capable of surviving boiling water there...
+    response:
+       Heat_resistant_plankton_and_oxygenation_in_boiling_ocean:
+       - AFAIK we know of organisms that can survive at 122C\n\n[https://ui.adsabs.harvard.edu/abs/2014IJAsB..13..141C/abstract](https://ui.adsabs.harvard.edu/abs/2014IJAsB..13..141C/abstract)\n\nas
+         per able to produce oxigen, Cyanobacteria are the dominant primary producers in
+         alkaline hot springs at temperatures below ca. 73\u2009\u00b0C, the upper limit
+         for photosynthetic life
+
+  - intent: Name_suggestion_for_exoplanet
+    examples: |
+      - Planet "shallipopthekettleon" with its moon "chocolate biscuits"
+      - Perfect if the moon's orbit is also unstable and we can potentially witness the biscuit being dunked.
+    response:
+       Name_suggestion_for_exoplanet:
+       - Planet "shallipopthekettleon" with its moon "chocolate biscuits"
+       - Perfect if the moon's orbit is also unstable and we can potentially witness the
+         biscuit being dunked.
+
+  - intent: New_study_reveals_how_protest_tactics_impact_public_support_for_Black_Lives_Matter
+    examples: |
+      - I think support was also lost after learning where much of the money being donated to BLM was going.
+      - Let's all just pretend the "summer of love" didn't happen.
+      - I support the tactics of rooftop koreans.
+      - Damn, so white conservatives think peaceful protests are the same as riots when it's the African-Americans doing it.
+      - The amount of neo-terms within this article is wild. Inventing language to get to the finish line.
+    response:
+       New_study_reveals_how_protest_tactics_impact_public_support_for_Black_Lives_Matter:
+       - Unfortunately they weren't even the originators of the Black Lives Matter movement.
+         They just capitalized off of other black people's pain. I'm sure they justified
+         it amongst themselves as "this is like reparations" ignoring it was mostly stealing
+         from their own people.
+       - BLM is not itself a central organization. It's a decentralized movement. Organizations
+         like BLMGN used the phrase, but not every BLM protest was put on by BLMGN, many
+         were not, and donations that may have occurred during that time period were not
+         necessarily go to BLMGN, often they were collected by other local community efforts.
+         The confusion that caused is honestly terrible.
+       - Seeing that guy bleeding to death from a gunshot to the gut while trying to protect
+         his small business from looting while crying for help and the protesters are just
+         walking over his body and pool of blood ignoring him while he cried for help and
+         died was what led me to lose support. Well that and how it all started. It's first
+         act of surrounding the police station with people inside (who had nothing to do
+         with the murder of George Floyd) shouting "burn it down" then they have to burst
+         through a chain link fence to escape with their lives and protesters burned it down.
+
+  - intent: White_conservatives_and_protest_tactics
+    examples: |
+      - Isn't the inverse also shown by the authors too?
+      - So disruptive protests alienate potential allies vs peaceful protests? That seems like an important takeaway.
+      - Disruptive protests alienate people with implicit bias against the protesters.
+      - Because people love hearing things that confirm their biases.
+      - They also thunk January 6th was a peaceful protest by average tourist.
+    response:
+       White_conservatives_and_protest_tactics:
+       - Isn't the inverse also shown by the authors too?
+       - I think the key here is that when you support a cause you are more forgiving of
+         the means of protest and vice verse.
+       - The researchers uncovered that whites' reactions to the protests were influenced
+         by their levels of racial resentment.
+       - White conservatives make no distinction between activities at the low and high end
+         of the protest disruption spectrum when it comes to Black Lives Matter protests.
+       - Disruptive protests alienate potential allies vs peaceful protests? That seems like
+         an important takeaway.
+
+  - intent: Study_insights_on_protest_tactics_and_public_support
+    examples: |
+      - Can you relate what you claim to the actual research?
+      - No numbers in the entire article except the sample size of 3000.
+      - Even then, the majority of the sample size was democratic.
+      - Look at the first act of the riots which was to surround a police station and burn it down.
+      - Destroying cities is not peaceful that's the thing.
+    response:
+       Study_insights_on_protest_tactics_and_public_support:
+       - Can you relate what you claim to the actual research?
+       - The researchers uncovered that whites' reactions to the protests were influenced
+         by their levels of racial resentment. White conservatives make no distinction between
+         activities at the low and high end of the protest disruption spectrum when it comes
+         to Black Lives Matter protests. White respondents with lower levels of racial resentment
+         were more likely to view disruptive protests negatively, while those with higher
+         resentment did not significantly differentiate between peaceful and disruptive tactics
+         in their evaluations. Even then, the majority of the sample size was democratic.
+         Destroying cities is not peaceful that's the thing.
+
+  - intent: Children_with_lazy_eye_are_at_increased_risk_of_serious_disease_in_adulthood
+    examples: |
+      - Crazy conclusion from the fact that people who corrected the amblyopia had fewer problems.
+      - I think it's cogent to propose that the increased frequency of illness in amblyopia-havers could occur due to the social cruelties surrounding disability discrimination and lookism-related types of prejudices.
+      - Having lazy eye prevents binocular vision and results in a severe lack of depth perception even when treated.
+      - Adults who had amblyopia in childhood are more likely to experience hypertension, obesity, and metabolic syndrome in adulthood.
+      - In my experience, the kids that have lazy eye come from families whose socioeconomic status already puts them at risk for all that bad stuff.
+    response:
+       Children_with_lazy_eye_are_at_increased_risk_of_serious_disease_in_adulthood:
+       - If "disability discrimination" and "lookism" were major factors here, then they
+         would be expected to greatly affect things like economic and socioeconomic status
+         - which they aren't.
+       - Social isolation may have a positive impact on educational attainment.
+       - Eyepatches need to come back into style. Or maybe they already are and I'm out of
+         touch.
+
+  - intent: Amblyopia_and_depth_perception_in_athletic_sports
+    examples: |
+      - Depth perception is important in most athletic sports.
+      - A child with lazy eye is probably less likely to participate in sports by virtue of having a strong disadvantage.
+      - My lazy eye was treated, but not well enough to give me binocular vision.
+      - I am terrible at playing catch and baseball due to my lazy eye.
+    response:
+       Amblyopia_and_depth_perception_in_athletic_sports:
+       - Maybe you only ever noticed the children that couldn't get it treated properly?
+       - Likely, due to that same socioeconomic stress.
+       - The US now does optician therapy sessions to fix this which has far better outcomes
+         than home exercises, patches, or prism lenses alone.
+
+  - intent: Healthcare_workers_found_to_be_at_a_higher_risk_for_adverse_mental_health_outcomes
+    examples: |
+      - I can personally guarantee this to be true
+      - This original paper aims to provide a comprehensive analysis of the prevalence and trends in mental health disorders (n=6,420) from 1990 to 2019.
+      - I'm going through the final few months of my didactic education and have had multiple peers (including myself) who at some point have had SI +/- a plan during the program.
+      - This was before Covid - I would be interested in an update.
+      - Yup, and when they have a mental break, they get accused of being on drugs.
+      - Healthcare workers is a broad church. Can't imagine consultants are struggling as much as people who work  in care homes, for example, who are appallingly overworked and underpaid - especially given the value of what they do, in my opinion.
+    response:
+       Healthcare_workers_found_to_be_at_a_higher_risk_for_adverse_mental_health_outcomes:
+       - I can only imagine it gets worse once we actually have patient interactions and
+         more responsibility
+       - The study reveals a significant increase in the prevalence of mental health disorders
+         over the past three decades. Healthcare workers were found to be at a particularly
+         higher risk for adverse mental health outcomes.
+       - I would also be interested in updated research regarding this topic, especially
+         post-Covid.
+       - When they have a mental break, they get accused of being on drugs, which can further
+         impact their mental well-being.
+       - Indeed, different sectors within healthcare may face varying levels of mental health
+         challenges. Care homes workers, for instance, are facing significant struggles despite
+         the importance of their work.
+       - Gender disparities were also evident, emphasizing the importance of gender-specific
+         mental health interventions and support.
+
+  - intent: Sexist_men_show_a_greater_interest_in_robosexuality
+    examples: |
+      - *People who dislike other people tend to not want to be in a relationship with other people*
+      - Is it surprising that people who objectify other people are interested in objectified versions of those people?
+      - How exactly do you measure sexism? Does having had bad dating experiences with women make you score highly on the sexism test?
+      - Men who treat sexual partners like objects are more likely to treat objects like sexual partners. Yah that checks out, if A == B, then B == A.
+      - Based.
+      - I'm all for giving these men sex robots. Will slow/prevent these cretins from reproducing and/or forcing their disgusting presence on actual women. Let the willfully immature and arrogant men die alone with their robots; win-win for everyone.
+      - They are more comfortable treating others as objects
+    response:
+       Sexist_men_show_a_greater_interest_in_robosexuality:
+       - I genuinely can't guess which is the sexist opinion.
+
+  - intent: Sexism_measurement_through_questions
+    examples: |
+      - How exactly do you measure sexism? Does having had bad dating experiences with women make you score highly on the sexism test?
+      - Edit: As I think about it, grading the test is kind of a Rorschach. If you combine a lot of the questions with answers, and then ask someone to rate what that means, the result will say as much or more about the person administering the test than the person taking it.
+    response:
+  - intent: Origins_of_Black_Lives_Matter_movement
+    examples: |
+      - Unfortunately they weren't even the originators of the Black Lives Matter movement.
+      - BLM is not itself a central organization. It's a decentralized movement.
+      - It's first act of surrounding the police station with people inside shouting "burn it down" then they have to burst through a chain link fence.
+    response:
+       Origins_of_Black_Lives_Matter_movement:
+       - Unfortunately they weren't even the originators of the Black Lives Matter movement.
+         They just capitalized off of other black people's pain.
+       - BLM is not itself a central organization. It's a decentralized movement.
+
+  - intent: White_conservatives_and_protest_tactics
+    examples: |
+      - Isn't the inverse also shown by the authors too?
+      - So disruptive protests alienate potential allies vs peaceful protests? That seems like an important takeaway.
+      - Disruptive protests alienate people with implicit bias against the protesters.
+      - Because people love hearing things that confirm their biases.
+      - They also thunk January 6th was a peaceful protest by average tourist.
+    response:
+       White_conservatives_and_protest_tactics:
+       - Isn't the inverse also shown by the authors too?
+       - I think the key here is that when you support a cause you are more forgiving of
+         the means of protest and vice verse.
+       - The researchers uncovered that whites' reactions to the protests were influenced
+         by their levels of racial resentment.
+       - White conservatives make no distinction between activities at the low and high end
+         of the protest disruption spectrum when it comes to Black Lives Matter protests.
+       - Disruptive protests alienate potential allies vs peaceful protests? That seems like
+         an important takeaway.
+

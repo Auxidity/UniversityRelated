@@ -1,0 +1,27 @@
+{
+    "python.analysis.extraPaths": [
+        "/home/auxi/Desktop/OOP/object-oriented-programming-with-python/part08/",
+        "./10.1.1-Laptop-computer",
+        "./10.1.2-Game-Museum",
+        "./10.1.4-Word-game",
+        "./10.2.1-Supergroup",
+        "./10.3.1-Money",
+        "./10.3.3-An-iterable-shopping-list",
+        "./10.3.2-Simple-date",
+        "./10.2.2-Secret-magic-potion",
+        "./10.4.1-Phone-book-expansion-version-1",
+        "./10.4.2-Phone-book-expansion-version-2",
+        "./10.4.3-CourseRecords",
+        "./10.1.3-Areas"
+    ],
+    "python.testing.unittestArgs": [
+        "-v",
+        "-s",
+        "./testbench",
+        "-p",
+        "*test*.py"
+    ],
+    "python.testing.pytestEnabled": false,
+    "python.testing.unittestEnabled": true,
+    "python.testing.autoTestDiscoverOnSaveEnabled": true
+}

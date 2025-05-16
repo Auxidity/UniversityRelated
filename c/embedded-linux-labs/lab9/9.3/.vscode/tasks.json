@@ -1,0 +1,28 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Copy executable env_var (rpi)",
+            "type": "shell",
+            "command": "scp /home/student/Desktop/EmbeddedLinux/embedded-linux-labs/lab9/9.3/build/lab9.3 rpi:~",
+            "problemMatcher": []
+        },
+        {
+            "label": "Copy executable pwm (rpi)",
+            "type": "shell",
+            "command": "scp /home/student/Desktop/EmbeddedLinux/embedded-linux-labs/lab9/9.3/build/lab9_pwm rpi:~",
+            "problemMatcher": []
+        },
+        {
+            "label": "Task1",
+            "dependsOn":["Copy executable env_var (rpi)", "Copy executable pwm (rpi)"],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        }
+
+    ]
+}

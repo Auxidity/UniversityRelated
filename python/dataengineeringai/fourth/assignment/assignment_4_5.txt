@@ -1,0 +1,45 @@
+# 0
+Install minio docker container
+
+#1
+Implement services that generate data to our object storage:
+
+- Data generation script that sends JSON formatted messages to the flask server once per second
+	-On even numbered seconds (0, 2, 4, 6...) we POST a JSON to the /even route
+	-On odd numbered seconds (1, 3, 5, 7...) we POST a JSON to the /odd route
+	-The JSON's are formatted as follows and contain randomized data:
+		{
+			"timestamp": <EPOCH timestamp of current time>,
+			"timeofmeasurement":
+				{
+					"day": <random integer in range 1 to 30>,
+					"month": <random integer in range 1 to 12>
+				}
+			"temperature": <random floating point value in range -40 to +40>,
+			"humidity": <random floating point value in range 0 to 100>
+		}
+
+
+- A flask server that listens for POST requests on two routes:
+	/even - messages coming to this route are written to minio bucket EVEN
+	/odd - messages coming to this route are written to minio bucket ODD
+	- Think of a way to generate a name for the objects.
+
+#2
+Implement services that encrypt the data and add metadata:
+
+- Modify the flask server in such a way that before writing the message into the object storage, the message is given a unique identifier. For purposes of this exercise you can use a running number for the id, just make sure there are no duplicates.
+- Encrypt the message with AES encryption with randomized encryption key, different for each message.
+- Store the id+encryption key pair into a separate database. You are free to use whichever you want. I recommend postgreSQL.
+- Write metadata for the message object containing the objects id and owner information. Add your own name as the owner there.
+
+#3
+Implement a third route /obj on the flask server that is used to query messages from the storage:
+
+- You can freely choose how you want the route to get the information about the wanted index. You can use POST requests with JSON formatted information about the index, or include the index in the route (/route/123/) or you can even use query arguments if you really want to.
+- Once flask server gets the request and the id, it requests an object with that id from the minio storage. How do you know which bucket this object is in? If you can't figure out a way to do it smartly, we only have two buckets so we can perhaps try from both.
+- Request the associated AES key from the database and decrypt the message.
+- Reply to the HTTP request with the decrypted message.
+
+#4
+Implement a script that can be used to send a request to the /obj route of the flask server to retrieve a message with given index. The script prints the message on screen.

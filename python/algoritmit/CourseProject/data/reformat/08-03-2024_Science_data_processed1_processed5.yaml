@@ -1,0 +1,18 @@
+```yaml
+version: "2.0"
+
+nlu:
+- intent: TikTok_overuse_individuals_with_higher_levels_of_negative_emotions_and_lower_self_discipline_are_more_likely_to_develop_an_unhealthy_dependence_on_TikTok_with_this_relationship_significantly_influenced_by_depressive_symptoms
+  examples: |
+    - Sounds very similar to conventional drugs. Colour me surprised dopamine is addictive.
+    - The fact that the excessive usage of social platforms such as TikTok has been compared to officially recognized addictions is interesting and disturbing.
+    - Same would go for Reddit I imagine.
+    - Isn't this true of any social media?
+    - Wait till they do one on Reddit.
+    - I've linked to the news release in the post above. In this comment, for those interested, here's the link to the peer-reviewed journal article: https://bmcpsychology.biomedcentral.com/articles/10.1186/s40359-024-01541-y
+    - How many more studies like this do we need before we start acting on social media as though it's a cancer of mental health?
+
+responses:
+  TikTok_overuse_individuals_with_higher_levels_of_negative_emotions_and_lower_self_discipline_are_more_likely_to_develop_an_unhealthy_dependence_on_TikTok_with_this_relationship_significantly_influenced_by_depressive_symptoms:
+    - The addictions we care most about are to those things that do bad things to you. Social media's entire premise is to drive engagement by purposely skewing what its users see, and it's purposely skewed to antagonize because as long as people aren't 'pushed out of their comfort zone' they will tend to gravitate toward areas of interest. This doesn't serve a model whose primary function is to sell behavioral data. Reddit does it. Every social media platform does it. And they will not change until they have worn out humanity to the point where society itself collapses and there's nothing left for us to 'engage' with.
+```

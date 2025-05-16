@@ -1,0 +1,12 @@
+How many button presses it actually detected? 
+
+~12-13
+
+
+
+This is a skeleton, which you can modify so that multiple events that occur during a certain time window are filtered out. Use an oscilloscope to detect  what would be a suitable "dead" time for the debouncer. 
+
+When looking at oscilloscope, the duration of a button press when rapidly mashing the button is approximately ~70-75ms.
+The appropriate dead time would then be approximately half of that, so something inbetween ~20-40ms.
+
+I couldn't notice any debouncing with the event_test_with_threads_debounce, but a little bit of noise is present in the signal.

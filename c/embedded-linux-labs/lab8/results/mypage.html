@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Business Card</title>
+<style>
+    body, html {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: black;
+	    color: darkgreen;
+    }
+
+    .card {
+        width: 300px;
+        padding: 20px;
+        background-color: black;
+        border: 1px solid darkgreen;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .field {
+        margin-bottom: 10px;
+    }
+
+    .field label {
+        font-weight: bold;
+    }
+</style>
+</head>
+<body>
+
+<div class="card">
+    <div class="field">
+        <label for="name">Name:</label>
+        <div id="name">Daniel Kortesmaa</div>
+    </div>
+    <div class="field">
+        <label for="email">Email:</label>
+        <div id="email">daniel.kortesmaa@edu.turkuamk.fi</div>
+    </div>
+    <div class="field">
+        <label for="phone">Phone:</label>
+        <div id="phone">045-137 6447</div>
+    </div>
+</div>
+
+</body>
+</html>

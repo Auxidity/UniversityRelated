@@ -1,0 +1,34 @@
+*****************************************
+* THE ANSWERS TO THE QUESTIONS IN LAB 2 *
+*****************************************
+
+1. How many look-up-tables (LUTs) does the design use?
+
+Answer: 5
+
+***
+
+2. How many registers are used?
+
+Answer: 0
+
+***
+
+3. How many ports have you defined in the entity – does it match with the
+reported I/O-count?
+
+Answer: 14. The numbers match.
+
+***
+
+4. Compare the elaborated design to  the synthesized design at the schematics
+level – what is the difference?
+
+Answer: The elaborated design uses logic gates, whereas the synthesized design
+uses look-up-tables.
+
+***
+
+5. Does the design fulfil all the timing requirements? What were those?
+
+Answer: No timing requirements were given.

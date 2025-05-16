@@ -1,0 +1,1 @@
+/home/auxi/Desktop/Rust/rust/Interaction_Input_Command_Line_and_Operating_System/chapter_eight/target/debug/chapter_eight: /home/auxi/Desktop/Rust/rust/Interaction_Input_Command_Line_and_Operating_System/chapter_eight/src/main.rs
