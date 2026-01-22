@@ -1,0 +1,18 @@
+[package]
+name = "nyx"
+version = "0.0.1"
+edition = "2024"
+
+[dependencies]
+byteorder = "1.5.0"
+cpal = "0.15.3"
+crossbeam-channel = "0.5.15"
+ctrlc = "3.4.7"
+fundsp = "0.20.0"
+hound = "3.5.1"
+ringbuf = "0.4.8"
+
+[package.metadata.cross.target.aarch64-unknown-linux-gnu]
+linker = "aarch64-linux-gnu-gcc"
+rustflags = ["-L/usr/local/aarch64-linux-gnu/lib"]
+image = "custom"

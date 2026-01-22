@@ -1,0 +1,9 @@
+[package]
+name = "apollo"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+anyhow = "1.0.98"
+byteorder = "1.5.0"
+cpal = "0.15.3"
